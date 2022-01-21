@@ -11,6 +11,16 @@ An easy to integrate API allows smooth customer onboarding and establishes longs
 
 Shufti Pro is the go-to ID authentication solution for digital payment systems, FinTech firms, Cryptocurrency, banks, and trading platforms. Businesses can eradicate financial risk and digital ID theft, and boost operating efficiency all in a matter of seconds.
 
+
+<p float="center">
+  <img src="images/01.png" width="250" />
+  <img src="images/02.png" width="250" /> 
+  <img src="images/03.png" width="250" />
+  <img src="images/04.png" width="250" />
+  <img src="images/05.png" width="250" /> 
+  <img src="images/06.png" width="250" />
+</p>
+
 ## Table of contents
 * [General Requirements](#general-requirements)
 * [Permissions](#permissions)
