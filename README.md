@@ -1,13 +1,13 @@
 [![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.2/master/assets/banner.jpg)](https://www.shuftipro.com/)
 
 # What is Shufti Pro?
-Shufti Pro is an AI-based identity verification SaaS (Software as a Service) provider that offers real-time global identity verifications for seamless KYC/AML and KYB compliance. 
+Shufti Pro is an AI-based identity verification SaaS (Software as a Service) provider that offers real-time global identity verifications for seamless KYC/AML and KYB compliance.
 
 It provides businesses with a sound risk-cover and helps prevent fraud with its automated identity verification services including face verification, document verification, consent verification, address verification, biometric consent verification, phone verification, background checks, and 2-factor authentication.
 
-AML screening services enable clients to gain an extra layer of security, by scanning cybercriminals and fraudsters at the source. 
+AML screening services enable clients to gain an extra layer of security, by scanning cybercriminals and fraudsters at the source.
 
-An easy to integrate API allows smooth customer onboarding and establishes longstanding trust while optimising customer processing costs altogether. 
+An easy to integrate API allows smooth customer onboarding and establishes longstanding trust while optimising customer processing costs altogether.
 
 Shufti Pro is the go-to ID authentication solution for digital payment systems, FinTech firms, Cryptocurrency, banks, and trading platforms. Businesses can eradicate financial risk and digital ID theft, and boost operating efficiency all in a matter of seconds.
 
@@ -40,7 +40,7 @@ Shufti Pro is the go-to ID authentication solution for digital payment systems, 
 * [Copyright](#copyright)
 
 ## General Requirements
-Minimum requirements for SDK include: 
+Minimum requirements for SDK include:
 - Android 5.0 (API level 21) or higher
 - Internet connection
 - Camera
@@ -49,15 +49,15 @@ Minimum requirements for SDK include:
 The Shufti Pro application requires permission from your device to access the following:
 1. Camera
 2. External Storage.
-All permissions are handled in SDK.
+   All permissions are handled in SDK.
 
 ## SDK Installation Guide
 In your **Project** follow the steps given below.
-1. Run this command: "dart pub add shuftipro_flutter_sdk" with dart or "flutter pub add shuftipro_flutter_sdk" with flutter
+1. Run this command: "dart pub add shuftipro_sdk" with dart or "flutter pub add shuftipro_sdk" with flutter
 2. Add dependency in pubspec.yaml as
-     dependencies:
-        shuftipro_flutter_sdk: ^1.0.0
-3. Import this 'package:shuftipro_flutter_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
+   dependencies:
+   shuftipro_sdk: ^1.0.4
+3. Import this 'package:shuftipro_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
 
 ## Verifications:
 Shufti Pro offers three Verification services. You have the option to choose either all three or any one of them for mobile verification of your end-users.
@@ -66,23 +66,23 @@ Following is a list of all verification services, along with verification reques
 <br />
 
 * ### With OCR
-During verification with OCR, an end-user simply provides identity documents to Shufti Pro for authentication. The automated Shufti Pro API extracts credentials from the provided documents and verifies them as part of a single identity process. 
+During verification with OCR, an end-user simply provides identity documents to Shufti Pro for authentication. The automated Shufti Pro API extracts credentials from the provided documents and verifies them as part of a single identity process.
 
 * ### Without OCR
-During verification without OCR, Shufti Pro customer or end-user is required to provide not only the verification data but also the proof of that data in the form of identity documents. 
+During verification without OCR, Shufti Pro customer or end-user is required to provide not only the verification data but also the proof of that data in the form of identity documents.
 
 * ### Verification through hybrid view
 If you opt for mobile verification with Shufti Pro’s hybrid view, a web-view built upon HTML 5 will be displayed to the end-user. All data points and fields are adequately defined in the hybrid view. The format for sending verification data will be a JSON object, similar to other mobile verification formats (OCR and Non-OCR). If you send true in the [openWebView](#open_webview) parameter then verification through hybrid view will be started, else verification with OCR or without OCR (based upon JSON object) will be triggered.
 
 
-## Integration: 
+## Integration:
 Take a look at the sample project and learn the most common use of framework/SDK. Make sure to build on a real device.
 
-Make **AuthKeys** object using Clint ID and Secret Key 
+Make **AuthKeys** object using Clint ID and Secret Key
 ```
         var authObject = {
           "auth_type": "basic_auth",
-          "client_id": clientId,
+          "client_Id": clientId,
           "secret_key": secretKey,
         };
 
@@ -94,6 +94,17 @@ Or **AuthKeys** object using AccessToken
         var authObject = {
           "auth_type": "access_token",
           "access_token": accessToken,
+        };
+
+```
+
+
+Make **Config** object using AccessToken
+```
+        Map<String,Object> configObj = {
+          "open_webview": false,
+          "asyncRequest": false,
+          "captureEnabled": false,
         };
 
 ```
@@ -119,7 +130,6 @@ AuthKeys object parameters are explained [here](#authkey-object-parameters).
             "show_consent": 1,
             "show_results": 1,
             "show_privacy_policy": 1,
-            "open_webView": false,
           };
 
         //Creating Verification Object
@@ -202,7 +212,7 @@ AuthKeys object parameters are explained [here](#authkey-object-parameters).
 
 ```
 
-## Request Object Without OCR 
+## Request Object Without OCR
 
 ```
 
@@ -306,23 +316,18 @@ Request Object parameters are explained [here](#request-object-parameters).
 ## Initiate Request
 
 ```
-        new ShuftiPro(
-            authObject: authObject,
-            createdPayload: createdPayload,
-            async: false,
-            callback: (res) {
-                response = res.toString();
-            },
-        homeClass: MyHomePage())
+       
+        ShuftiproSdk.sendRequest(authObject: authObject,
+          createdPayload: createdPayload, configObject: configObject);
 
 ```
 
 <br>
 
 
-## AuthKey Object Parameters 
+## AuthKey Object Parameters
 
- In this object, we add authorization Key in verification request.
+In this object, we add authorization Key in verification request.
 
 * ## Basic Auth
   Shufti Pro provides Authorization to clients through the **Basic Auth** header. Your **Client ID** will serve as your **Username** while the **Secret Key** will serve as your **Password**. The API will require this header for every request.
@@ -336,38 +341,38 @@ Request Object parameters are explained [here](#request-object-parameters).
 
 * ## open_webview
 
-    Required: **No**  
-    Type: **boolean** <br>
-  Accepted Values: **true**, **false**  
+  Required: **No**  
+  Type: **boolean** <br>
+  Accepted Values: **true**, **false**
 
-    This boolean type of parameter is used to identify if you want to perform verification in its hybrid view.
-  If open_webview is true, it means that the user wants verification in the **hybrid view**. If false, then the user wants verification with **OCR or Without OCR**. The value is false by default. 
+  This boolean type of parameter is used to identify if you want to perform verification in its hybrid view.
+  If open_webview is true, it means that the user wants verification in the **hybrid view**. If false, then the user wants verification with **OCR or Without OCR**. The value is false by default.
 
 
- * ## async
+* ## async
 
-    Required: **No**  
-    Type: **boolean** <br>
-  Accepted Values: **true**, **false**  
+  Required: **No**  
+  Type: **boolean** <br>
+  Accepted Values: **true**, **false**
 
-    If **asyncRequest** value is set to **TRUE** you will instantly get the end-user's control back, so you do not have to wait for the verification results. When a request is completed you will automatically get a callback. 
-    
+  If **asyncRequest** value is set to **TRUE** you will instantly get the end-user's control back, so you do not have to wait for the verification results. When a request is completed you will automatically get a callback.
+
 * ## captureEnabled
 
-    Required: **No**  
-    Type: **boolean** <br>
-  Accepted Values: **true**, **false**    
+  Required: **No**  
+  Type: **boolean** <br>
+  Accepted Values: **true**, **false**
 
-    This boolean type of parameter is used to identify whether the user wants to open native camera in Iframe or not. A true value means that the user wants to open native camera, otherwise not. 
+  This boolean type of parameter is used to identify whether the user wants to open native camera in Iframe or not. A true value means that the user wants to open native camera, otherwise not.
 
   <br>
 
 
-## Request Object Parameters 
+## Request Object Parameters
 
-It is important to note here that each verification option offered by Shufti Pro is an exclusive service, and is activated following the nature of user’s request. Clients can choose one or all of the optional API keys. 
+It is important to note here that each verification option offered by Shufti Pro is an exclusive service, and is activated following the nature of user’s request. Clients can choose one or all of the optional API keys.
 
-In case a key is given in document and address verification, and no value is provided, then OCR will be performed for those particular keys. 
+In case a key is given in document and address verification, and no value is provided, then OCR will be performed for those particular keys.
 
 
 * ## reference
@@ -420,31 +425,31 @@ In case a key is given in document and address verification, and no value is pro
   Type: **string**  
   Accepted Values: **image_only, video_only**
 
-  Verification mode defines what types of proofs are allowed for a verification. In case of **video_only**, the user will upload videos and if verification mode is **image_only**, user will upload images.   
+  Verification mode defines what types of proofs are allowed for a verification. In case of **video_only**, the user will upload videos and if verification mode is **image_only**, user will upload images.
 
 * ## show_privacy_policy
-    
-    Required: **No**  
-    Type: **string**  
-    Accepted Values: **0**, **1**
-    
-    This key specifies whether to show privacy policy or not.If show_privacy_policy is **0**, then privacy policy is not shown. And if it is set to **1** then privacy policy is displayed to the user on the result screen.
+
+  Required: **No**  
+  Type: **string**  
+  Accepted Values: **0**, **1**
+
+  This key specifies whether to show privacy policy or not.If show_privacy_policy is **0**, then privacy policy is not shown. And if it is set to **1** then privacy policy is displayed to the user on the result screen.
 
 * ## show_results
-    
-    Required: **No**  
-    Type: **string**  
-    Accepted Values: **0**, **1**
-    
-  This key specifies whether the verification results will be displayed to the user or not. .If show_results is 0, then verification results are not shown to the user and sent to the merchant. If show_results is 1, then verification results are shown to the user. 
+
+  Required: **No**  
+  Type: **string**  
+  Accepted Values: **0**, **1**
+
+  This key specifies whether the verification results will be displayed to the user or not. .If show_results is 0, then verification results are not shown to the user and sent to the merchant. If show_results is 1, then verification results are shown to the user.
 
 
 * ## show_consent
-    
-    Required: **No**  
-    Type: **string**  
-    Accepted Values: **0**, **1**
-    
+
+  Required: **No**  
+  Type: **string**  
+  Accepted Values: **0**, **1**
+
   This key specifies if the consent is shown to the user or not. If show_consent is 0, then the consent screen is not shown to the user. If show_consent is 1, then consent is shown to the user at the start of the verification.
 
 <!-- ---------------------------------------------------------------------------------->
@@ -457,7 +462,7 @@ In case a key is given in document and address verification, and no value is pro
 
   Shufti Pro provides document verification through various types of documents. The supported formats are passports, ID Cards, driving licenses and debit/credit cards. You can opt for more than 1 document type as well. In that case, Shufti Pro will give an option to end-users to verify their data from any of the given document types.
 
-  * <h3>proof</h3>
+    * <h3>proof</h3>
 
   Required: **Yes**  
   Type: **string** <br>
@@ -466,7 +471,7 @@ In case a key is given in document and address verification, and no value is pro
 
   Provide valid BASE64 encoded string. Leave empty for an on-site verification.
 
-  * <h3>additional_proof</h3>
+    * <h3>additional_proof</h3>
 
   Required: **No**  
   Type: **string** <br>
@@ -476,111 +481,111 @@ In case a key is given in document and address verification, and no value is pro
   Provide valid BASE64 encoded string. Leave empty for an on-site verification.
 
 
-  * <h3>supported_types</h3>
+* <h3>supported_types</h3>
 
-  Required: **Yes**  
-  Type: **Array**
+Required: **Yes**  
+Type: **Array**
 
-  You can provide anyone, two or more types of documents to verify the identity of the user. For example, if you opt for both passport and driving license, then your user will be given an opportunity to verify data from either of these two documents. All supported types are listed below.
+You can provide anyone, two or more types of documents to verify the identity of the user. For example, if you opt for both passport and driving license, then your user will be given an opportunity to verify data from either of these two documents. All supported types are listed below.
 
-  Supported Types      |
+Supported Types      |
   ---------------------|
-  passport             |
-  id_card            |
-  driving_license    |
-  credit_or_debit_card |
+passport             |
+id_card            |
+driving_license    |
+credit_or_debit_card |
 
-  **Example 1** ["driving_license"]  
-  **Example 2** ["id_card", "credit_or_debit_card", "passport"]
+**Example 1** ["driving_license"]  
+**Example 2** ["id_card", "credit_or_debit_card", "passport"]
 
-  * <h3>name</h3>
+* <h3>name</h3>
 
-  Required: **No**  
-  Type: **object**
+Required: **No**  
+Type: **object**
 
-  In the name object used in document service, first_name and last_name are extracted from the document uploaded. 
+In the name object used in document service, first_name and last_name are extracted from the document uploaded.
 
-  * <h4>first_name</h4>
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **32 characters** 
-
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-  Example **John'O Harra**
-
-  * <h4>middle_name</h4>
-
+* <h4>first_name</h4>
   Required: **No**  
   Type: **string**  
   Minimum: **2 characters**  
   Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
-  Example **Carter-Joe**
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
+Example **John'O Harra**
 
-  * <h4>last_name</h4>
+* <h4>middle_name</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **32 characters**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-  Example **John, Hurricane Jr.**
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
+Example **Carter-Joe**
 
-  * <h4>fuzzy_match</h4>
+* <h4>last_name</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Value Accepted: **1**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **32 characters**
 
-  Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not 100% accurate.
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
+Example **John, Hurricane Jr.**
 
-  * <h3>dob</h3>
+* <h4>fuzzy_match</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Format: **yyyy-mm-dd**
+Required: **No**  
+Type: **string**  
+Value Accepted: **1**
 
-  Leave empty to perform data extraction from uploaded proofs. Provide a valid date. Please note that the date should be before today. 
-  Example 1990-12-31
+Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not 100% accurate.
 
-  * <h3>document_number</h3>
+* <h3>dob</h3>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **100 characters**
+Required: **No**  
+Type: **string**  
+Format: **yyyy-mm-dd**
 
-  Leave empty to perform data extraction from the proof which will be uploaded by end-users. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, and commas. 
-  Examples 35201-0000000-0, ABC1234XYZ098
+Leave empty to perform data extraction from uploaded proofs. Provide a valid date. Please note that the date should be before today.
+Example 1990-12-31
 
-  * <h3>issue_date</h3>
+* <h3>document_number</h3>
 
-  Required: **No**  
-  Type: **string**  
-  Format: **yyyy-mm-dd**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **100 characters**
 
-  Leave empty to perform data extraction from the proof which will be uploaded by end-users. Provide a valid date. Please note that the date should be before today. 
-  Example 2015-12-31
+Leave empty to perform data extraction from the proof which will be uploaded by end-users. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, and commas.
+Examples 35201-0000000-0, ABC1234XYZ098
 
-  * <h3>expiry_date</h3>
+* <h3>issue_date</h3>
 
-  Required: **No**  
-  Type: **string**  
-  Format: **yyyy-mm-dd**
+Required: **No**  
+Type: **string**  
+Format: **yyyy-mm-dd**
 
-  Leave empty to perform data extraction from the proof which will be uploaded by end-users. Provide a valid date. Please note that the date should be after today. 
-  Example 2025-12-31
-  
-  * <h3>fetch_enhanced_data</h3>
+Leave empty to perform data extraction from the proof which will be uploaded by end-users. Provide a valid date. Please note that the date should be before today.
+Example 2015-12-31
 
-  Required: **No**  
-  Type: **string**  
-  Accepted value: **1**
+* <h3>expiry_date</h3>
 
-  Provide 1 for enabling enhanced data extraction for the document. Shufti Pro provides its customers with the facility of extracting enhanced data features using OCR technology. Now, instead of extracting just personal information input fields, Shufti Pro can fetch all the additional information comprising more than 100 data points from the official ID documents supporting 150 languages. For example height, place_of_birth, nationality, marital_status, weight, etc.(additional charges apply)
+Required: **No**  
+Type: **string**  
+Format: **yyyy-mm-dd**
+
+Leave empty to perform data extraction from the proof which will be uploaded by end-users. Provide a valid date. Please note that the date should be after today.
+Example 2025-12-31
+
+* <h3>fetch_enhanced_data</h3>
+
+Required: **No**  
+Type: **string**  
+Accepted value: **1**
+
+Provide 1 for enabling enhanced data extraction for the document. Shufti Pro provides its customers with the facility of extracting enhanced data features using OCR technology. Now, instead of extracting just personal information input fields, Shufti Pro can fetch all the additional information comprising more than 100 data points from the official ID documents supporting 150 languages. For example height, place_of_birth, nationality, marital_status, weight, etc.(additional charges apply)
 Extracted data will be returned in object under the key additional_data in case of verification.accepted or verification.declined.
 For Details on additional_data object go to [Additional Data](https://api.shuftipro.com/api/docs/#additional-data)
 
@@ -589,106 +594,106 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
 
   Address of an individual can be verified from the document but they have to enter it before it can be verified from an applicable document image.
 
-  
-  * <h3>proof</h3>
 
-  Required: **Yes**  
-  Type: **string** <br>
-  Image Format: JPG, JPEG, PNG, PDF Maximum: 16MB <br>
-  Video Format: MP4/MOV Maximum: 20MB
+* <h3>proof</h3>
 
-  Provide valid BASE64 encoded string. Leave empty for an on-site verification.
+Required: **Yes**  
+Type: **string** <br>
+Image Format: JPG, JPEG, PNG, PDF Maximum: 16MB <br>
+Video Format: MP4/MOV Maximum: 20MB
+
+Provide valid BASE64 encoded string. Leave empty for an on-site verification.
 
 
-  * <h3>supported_types</h3>
+* <h3>supported_types</h3>
 
-  Required: **Yes**  
-  Type: **Array**
+Required: **Yes**  
+Type: **Array**
 
-  Provide any one, two, or more document types in supported_types parameter in Address verification service. For example, if you choose id_card and utility_bill, then the user will be able to verify data using either of these two documents. Following is the list of supported types for address verification.
+Provide any one, two, or more document types in supported_types parameter in Address verification service. For example, if you choose id_card and utility_bill, then the user will be able to verify data using either of these two documents. Following is the list of supported types for address verification.
 
-  Supported Types      |
+Supported Types      |
   ---------------------|
-  id_card              |
-  passport             |
-  driving_license      |
-  utility_bill         |
-  bank_statement       |
-  rent_agreement       |
-  employer_letter      |
-  insurance_agreement  |
-  tax_bill             |
+id_card              |
+passport             |
+driving_license      |
+utility_bill         |
+bank_statement       |
+rent_agreement       |
+employer_letter      |
+insurance_agreement  |
+tax_bill             |
 
-  **Example 1** [ "utility_bill" ]  
-  **Example 2** [ "id_card", "bank_statement" ]
+**Example 1** [ "utility_bill" ]  
+**Example 2** [ "id_card", "bank_statement" ]
 
-  * <h3>full_address</h3>
+* <h3>full_address</h3>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **250 characters**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **250 characters**
 
-  Leave empty to perform data extraction from the uploaded proof. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
+Leave empty to perform data extraction from the uploaded proof. Allowed Characters are numbers, alphabets, dots, dashes, spaces, underscores, hashes and commas.
 
-  * <h3>name</h3>
+* <h3>name</h3>
 
-  Required: **No**  
-  Format **object**
+Required: **No**  
+Format **object**
 
-  In the name object used in address service, first_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
+In the name object used in address service, first_name is required if you don't want to perform OCR of the name parameter. Other fields are optional.
 
-  * <h4>first_name</h4>
+* <h4>first_name</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **32 characters**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-  Example **John'O Harra**
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
+Example **John'O Harra**
 
-  * <h4>middle_name</h4>
+* <h4>middle_name</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **32 characters**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
-  Example **Carter-Joe**
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
+Example **Carter-Joe**
 
-  * <h4>last_name</h4>
+* <h4>last_name</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Minimum: **2 characters**  
-  Maximum: **32 characters**
+Required: **No**  
+Type: **string**  
+Minimum: **2 characters**  
+Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
-  Example **John, Hurricane Jr.**
+Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
+Example **John, Hurricane Jr.**
 
-  * <h4>fuzzy_match</h4>
+* <h4>fuzzy_match</h4>
 
-  Required: **No**  
-  Type: **string**  
-  Value Accepted: **1**
+Required: **No**  
+Type: **string**  
+Value Accepted: **1**
 
-  Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not 100% accurate.
+Provide 1 for enabling a fuzzy match of the name. Enabling fuzzy matching attempts to find a match which is not 100% accurate.
 
 <!-- -------------------------------------------------------------------------------- -->
 * ## Consent
-  
+
   Customised documents/notes can also be verified by Shufti Pro. Company documents, employee cards or any other personalised note can be authenticated by this module. You can choose handwritten or printed document format but only one form of the document can be verified in this verification module. Text whose presence on the note/customised document is to be verified is also needed to be provided.
 
-  * <h3>proof</h3>
+    * <h3>proof</h3>
 
   Required: **Yes**  
   Type: **string**  
   Image Format: **JPG, JPEG, PNG, PDF** Maximum: **16MB**  
   Video Format: **MP4/MOV** Maximum: **20MB**
-  
-  * <h3>supported_types</h3>
+
+    * <h3>supported_types</h3>
 
   Required: **Yes**  
   Type: **array**
@@ -696,14 +701,14 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
   Text provided in the consent verification can be verified by handwritten documents or printed documents.
 
   Supported Types              |
-  ---------------------|
+    ---------------------|
   handwritten          |
   printed            |
 
   **Example 1**  ["printed"]  
   **Example 2**  ["printed", "handwritten"]
 
-  * <h3>text</h3>
+    * <h3>text</h3>
 
   Required: **Yes**  
   Type: **string**  
@@ -726,7 +731,7 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
 
   Verify the phone number of end-users by sending a random code to their number from Shufti Pro. Once the sent code is entered into the provided field by the end-user, a phone number will stand verified. It is primarily an on-site verification and you have to provide the phone number of end-user to us, in addition to the verification code and the message that is to be forwarded to the end-user. Shufti Pro will be responsible only to send the message along with verification code to the end-user and verify the code entered by the end-user.
 
-  * <h3>phone_number</h3>
+    * <h3>phone_number</h3>
 
   Required: **No**  
   Type: **string**  
@@ -735,7 +740,7 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
 
   Allowed Characters: numbers and plus sign at the beginning. Provide a valid customer’s phone number with country code. Shufti Pro will directly ask the end-user for phone number if this field is missing or empty.
 
-  * <h3>random_code</h3>
+    * <h3>random_code</h3>
 
   Required: **No**  
   Type: **string**  
@@ -744,7 +749,7 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
 
   Provide a random code. If this field is missing or empty. Shufti Pro will generate a random code.
 
-  * <h3>text</h3>
+    * <h3>text</h3>
 
   Required: **No**  
   Type: **string**  
@@ -758,24 +763,24 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
 
   It is a verification process that will require you to send us the full name of end-user in addition to the date of birth. Shufti Pro will perform AML based background checks based on this information. Please note that the name and dob keys will be extracted from document service if these keys are empty.
 
-  * <h3>name</h3>
+    * <h3>name</h3>
 
   Required: **No**  
   Format: **object**
 
   In the name object used in background checks service, first_name is required and other fields are optional.
 
-  * <h4>first_name</h4>
+    * <h4>first_name</h4>
 
   Required: **No**  
   Type: **string**  
   Minimum: **2 characters**  
   Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
   Example **John'O Harra**
 
-  * <h4>middle_name</h4>
+    * <h4>middle_name</h4>
 
   Required: **No**  
   Type: **string**  
@@ -785,23 +790,23 @@ For Details on additional_data object go to [Additional Data](https://api.shufti
   Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.  
   Example **Carter-Joe**
 
-  * <h4>last_name</h4>
+    * <h4>last_name</h4>
 
   Required: **No**  
   Type: **string**  
   Minimum: **2 characters**  
   Maximum: **32 characters**
 
-  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark. 
+  Allowed Characters are alphabets, - (dash), comma, space, dot and single quotation mark.
   Example **John, Hurricane Jr.**
 
-  * <h3>dob</h3>
+    * <h3>dob</h3>
 
   Required: **No**  
   Type: **string**  
   Format: **yyyy-mm-dd**
 
-  Provide a valid date. Please note that the date should be before today. 
+  Provide a valid date. Please note that the date should be before today.
   Example 1990-12-31
 
 
@@ -816,7 +821,7 @@ Following is a list of HTTP codes which are generated in responses by Shufti Pro
 
 HTTP code     | HTTP message         | Message        |                                   
 --------------|----------------------| -------------- |
-200           | OK                 | success                                    
+200           | OK                 | success
 400           | Bad Request          | bad request: one or more parameter is invalid or missing
 401           | Unauthorized         | unauthorized: invalid signature key provided in the request
 402           | Request Failed       | invalid request data: missing required parameters
@@ -829,14 +834,13 @@ HTTP code     | HTTP message         | Message        |
 
 ## Response Logging
 
-Response of the verification can be obtained via the code given below.
+Response of the verification will be returned by the function. You can save or do whatever you want with the response.
 
 
 ```sh
 
-        callback: (res) {
-            Response = res
-        }
+        var response = await ShuftiproSdk.sendRequest(authObject: AuthObject,
+          createdPayload: createdPayload, configObject: ConfigObject);
 
 ```
 
@@ -846,13 +850,13 @@ The Shufti Pro Verification API will send a JSON response if a status request is
 
 * <h3>reference</h3>
 
-    This is the user’s unique request reference provided at the time of request, in order for the unique response to be identified. 
+  This is the user’s unique request reference provided at the time of request, in order for the unique response to be identified.
 
 
 * <h3>event</h3>
 
-    The request event shows the status of user’s request, and is different for every response. For more information, click
-    [here](https://api.shuftipro.com/api/docs/#status-response)
+  The request event shows the status of user’s request, and is different for every response. For more information, click
+  [here](https://api.shuftipro.com/api/docs/#status-response)
 
 <aside class="notice">
 Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the request is invalid.
@@ -865,21 +869,21 @@ Note: <b>request.invalid</b> response with <b>HTTP status code 400</b> means the
 
 Address              |  Document         |                                  
 ---------------------|-------------------|
-id_card              | id_card                                                   
-passport             | passport  
-driving_license      | driving_license        
-utility_bill         | credit_or_debit_card    
-bank_statement       |           
-rent_agreement       |          
-employer_letter      |             
-insurance_agre       |       
+id_card              | id_card
+passport             | passport
+driving_license      | driving_license
+utility_bill         | credit_or_debit_card
+bank_statement       |
+rent_agreement       |
+employer_letter      |
+insurance_agre       |
 tax_bill |
 
 # Test IDs
 Shufti Pro provides users with a number of test documents. Customers may use these to test the demo, instead of presenting their actual information.  <br><br>
 
 
-[![](https://raw.githubusercontent.com/shuftipro/integration-guide/master/assets/realFace.jpg?v=1)](https://raw.githubusercontent.com/shuftipro/integration-guide/master/assets/realFace.jpg?v=1) 
+[![](https://raw.githubusercontent.com/shuftipro/integration-guide/master/assets/realFace.jpg?v=1)](https://raw.githubusercontent.com/shuftipro/integration-guide/master/assets/realFace.jpg?v=1)
 
 [![](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)](https://raw.githubusercontent.com/shuftipro/RESTful-API-v1.3/master/assets/real-id-card.jpg)
 
@@ -893,6 +897,6 @@ If you have any queries regarding the implementation of SDK, please feel free to
 
 ## Revision History
 
-Date            | Description 
+Date            | Description
 --------------- | ------------
-28 Jul 2021     | Added all verifications(verification with OCR, without OCR and restful API) in one sdk.
+24 Feb 2022     | Improved user experience
