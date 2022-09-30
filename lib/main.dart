@@ -34,11 +34,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var authObject = {
     "auth_type": "basic_auth",
-    "client_Id": clientId,
+    "client_id": clientId,
     "secret_key": secretKey,
   };
   Map<String, Object> createdPayload = {
-    "country": "GB",
+    "country": "",
     "language": "EN",
     "email": "",
     "callback_url": "http://www.example.com",
@@ -72,6 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
     "open_webview": false,
     "asyncRequest": false,
     "captureEnabled": false,
+    "dark_mode" : false,
+    "font_color" : "#263B54",
+    "button_text_color" : "#FFFFFF",
+    "button_background_color" : "#1F5AF6"
   };
 
   Future<void> initPlatformState() async {
@@ -89,10 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void continueFun() {
-      var v = DateTime.now();
-      var reference = "package_sample_Flutter_$v";
-      createdPayload["reference"] = reference;
-      initPlatformState();
+    var v = DateTime.now();
+    var reference = "package_sample_Flutter_$v";
+    createdPayload["reference"] = reference;
+    initPlatformState();
 
   }
 

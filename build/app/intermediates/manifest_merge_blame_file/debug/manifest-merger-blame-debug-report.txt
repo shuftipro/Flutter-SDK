@@ -1,0 +1,160 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.kyc_plugin_example"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="31" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/Users/mahinmunir/Desktop/flutter github/Flutter-SDK/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/Users/mahinmunir/Desktop/flutter github/Flutter-SDK/android/app/src/debug/AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:13:5-81
+15-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:13:22-78
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:14:5-79
+16-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:14:22-76
+17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+17-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:15:5-71
+17-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:15:22-68
+18    <uses-permission android:name="android.permission.CAMERA" />
+18-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:16:5-65
+18-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:16:22-62
+19
+20    <uses-feature android:name="android.hardware.camera" />
+20-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:19:5-60
+20-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:19:19-57
+21
+22    <uses-permission android:name="android.permission.FLASHLIGHT" />
+22-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:21:5-69
+22-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:21:22-66
+23
+24    <queries>
+24-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:23:5-41:15
+25
+26        <!-- Browser -->
+27        <intent>
+27-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:26:9-30:18
+28            <action android:name="android.intent.action.VIEW" />
+28-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:27:13-65
+28-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:27:21-62
+29
+30            <data android:scheme="http" />
+30-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:29:13-43
+30-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:29:19-40
+31        </intent>
+32
+33        <!-- Camera -->
+34        <intent>
+34-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:33:9-35:18
+35            <action android:name="android.media.action.IMAGE_CAPTURE" />
+35-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:34:13-73
+35-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:34:21-70
+36        </intent>
+37
+38        <!-- Gallery -->
+39        <intent>
+39-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:38:9-40:18
+40            <action android:name="android.intent.action.GET_CONTENT" />
+40-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:39:13-72
+40-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:39:21-69
+41        </intent>
+42    </queries>
+43
+44    <application
+45        android:name="android.app.Application"
+46        android:allowBackup="true"
+46-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:44:9-35
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.6.0] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/122df2e57d294d1a53db26bbc3b813c1/core-1.6.0/AndroidManifest.xml:24:18-86
+48        android:debuggable="true"
+49        android:hardwareAccelerated="true"
+49-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:45:9-43
+50        android:icon="@mipmap/ic_launcher"
+51        android:label="kyc_plugin_example"
+52        android:largeHeap="true"
+52-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:47:9-33
+53        android:supportsRtl="true"
+53-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:48:9-35
+54        android:theme="@style/lightTheme" >
+54-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:49:9-42
+55        <activity
+56            android:name="com.example.kyc_plugin_example.MainActivity"
+57            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+58            android:exported="true"
+59            android:hardwareAccelerated="true"
+60            android:launchMode="singleTop"
+61            android:theme="@style/LaunchTheme"
+62            android:windowSoftInputMode="adjustResize" >
+63
+64            <!--
+65                 Specifies an Android theme to apply to this Activity as soon as
+66                 the Android process has started. This theme is visible to the user
+67                 while the Flutter UI initializes. After that, this theme continues
+68                 to determine the Window background behind the Flutter UI.
+69            -->
+70            <meta-data
+71                android:name="io.flutter.embedding.android.NormalTheme"
+72                android:resource="@style/NormalTheme" />
+73
+74            <intent-filter>
+75                <action android:name="android.intent.action.MAIN" />
+76
+77                <category android:name="android.intent.category.LAUNCHER" />
+78            </intent-filter>
+79        </activity>
+80        <!--
+81             Don't delete the meta-data below.
+82             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+83        -->
+84        <meta-data
+85            android:name="flutterEmbedding"
+86            android:value="2" />
+87
+88        <activity
+88-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:51:9-55:52
+89            android:name="com.shutipro.sdk.activities.ShuftiVerifyActivity"
+89-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:52:13-76
+90            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+90-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:53:13-122
+91            android:exported="false"
+91-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:54:13-37
+92            android:screenOrientation="portrait" />
+92-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:55:13-49
+93        <activity
+93-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:56:9-60:52
+94            android:name="com.shutipro.sdk.activities.ShuftiVerifyActivityOnsite"
+94-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:57:13-82
+95            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+95-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:58:13-122
+96            android:exported="false"
+96-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:59:13-37
+97            android:screenOrientation="portrait" />
+97-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:60:13-49
+98
+99        <provider
+99-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:62:9-70:20
+100            android:name="com.shutipro.sdk.activities.MyFileProvider"
+100-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:63:13-70
+101            android:authorities="com.example.kyc_plugin_example.library.file.provider"
+101-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:64:13-73
+102            android:exported="false"
+102-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:65:13-37
+103            android:grantUriPermissions="true" >
+103-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:66:13-47
+104            <meta-data
+104-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:67:13-69:54
+105                android:name="android.support.FILE_PROVIDER_PATHS"
+105-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:68:17-67
+106                android:resource="@xml/file_paths" />
+106-->[:shuftipro-sdk:] /Users/mahinmunir/.gradle/caches/transforms-2/files-2.1/4e2ba92383182921df6f85c157d7d194/jetified-shuftipro-sdk/AndroidManifest.xml:69:17-51
+107        </provider>
+108    </application>
+109
+110</manifest>

@@ -1,0 +1,2 @@
+com/example/kyc_plugin/BuildConfig.java
+ com.example.kyc_plugin.BuildConfig

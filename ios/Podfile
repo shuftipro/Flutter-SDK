@@ -26,12 +26,11 @@ end
 require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
 
 flutter_ios_podfile_setup
-source 'https://github.com/shuftipro/iOS-binary-pod'
-source 'https://cdn.cocoapods.org/'
+
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'ShuftiPro', :tag => '1.1.4', :git => "https://github.com/shuftipro/iOS-binary-pod"
+
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 
