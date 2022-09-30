@@ -37,11 +37,11 @@ The Shufti Pro application requires permission to access the following:
 **Note:** All permissions are handled in the SDK.
 ## SDK Installation Guide
 In your **Project** follow the steps given below.
-1. Run this command: "dart pub add shuftipro_flutter_sdk" with dart or "flutter pub add shuftipro_flutter_sdk" with flutter
+1. Run this command: "dart pub add shuftipro_sdk" with dart or "flutter pub add shuftipro_sdk" with flutter
 2. Add dependency in pubspec.yaml as
    dependencies:
    shuftipro_sdk: ^1.1.1
-3. Import this 'package:shuftipro_flutter_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
+3. Import this 'package:shuftipro_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
 
 ## Verification Types You Can Get:
 Shufti Pro’s services come in three variations. You have an option of choosing all or any one of them that fulfills your client's requirements. Following are the types of verification services;
