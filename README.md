@@ -40,7 +40,7 @@ In your **Project** follow the steps given below.
 1. Run this command: "dart pub add shuftipro_sdk" with dart or "flutter pub add shuftipro_sdk" with flutter
 2. Add dependency in pubspec.yaml as
    dependencies:
-   shuftipro_sdk: ^1.1.6
+   shuftipro_sdk: ^1.1.7
 3. Import this 'package:shuftipro_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
 
 ## Verification Types You Can Get:
