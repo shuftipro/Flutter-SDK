@@ -26,7 +26,7 @@ A user-friendly interface with an easy API integration procedure enables busines
 
 ## General Requirements
 Minimum requirements for SDK include
-- Android 5.0 (API level 21) or higher
+- Android 6.0 (API level 23) or higher
 - Internet connection
 - Camera
 ## Permissions:
@@ -40,7 +40,7 @@ In your **Project** follow the steps given below.
 1. Run this command: "dart pub add shuftipro_sdk" with dart or "flutter pub add shuftipro_sdk" with flutter
 2. Add dependency in pubspec.yaml as
    dependencies:
-   shuftipro_sdk: ^1.1.4
+   shuftipro_sdk: ^1.1.6
 3. Import this 'package:shuftipro_sdk/ShuftiPro.dart' in your class in order to send the request to ShuftiPro's SDK.
 
 ## Verification Types You Can Get:
