@@ -18,7 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  shuftipro_sdk: ^1.1.7
+  shuftipro_sdk: ^1.2.6
     # When depending on this package from a real application you should use:
 
     # See https://dart.dev/tools/pub/dependencies#version-constraints
